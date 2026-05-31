@@ -111,23 +111,33 @@
                     </div>
                 </aside>
 
-                <div class="map-container">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1d3509.70271505952!2d81.6961445763041!3d28.093740875961605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399b6555555555555%3A0x555555555555!2sFulbari%20Educational%20Academy!5e0!3m2!1sen!2snp!4v1234567890"
-                        width="100%"
-                        height="400"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        aria-label="Google Maps location of Fulbari Educational Academy in Banke, Nepal"
-                        title="Our location on Google Maps">
-                    </iframe>
+                <!-- Map Container with Lazy Loading and Accessibility -->
+                <div class="map-wrapper">
+                    <div class="map-container" id="mapContainer">
+                        <noscript>
+                            <p class="map-noscript">Please enable JavaScript to view the map. <a href="https://maps.google.com/maps/place/Banke+Nepal/@28.0937,81.6961,13z" target="_blank" rel="noopener noreferrer">View on Google Maps</a></p>
+                        </noscript>
+                        <iframe
+                            id="locationMap"
+                            class="map-iframe"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.70271505952!2d81.6961445763041!3d28.093740875961605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399b6555555555555%3A0x555555555555!2sFulbari%20Educational%20Academy!5e0!3m2!1sen!2snp!4v1234567890"
+                            width="100%"
+                            height="400"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            aria-label="Google Maps location of Fulbari Educational Academy in Banke, Nepal"
+                            title="Our location on Google Maps">
+                        </iframe>
+                    </div>
                 </div>
             </div>
 
+            <!-- Message Form Section -->
             <div class="message-form-container">
                 <h3>Send a Message</h3>
+                <p>Reach out to us with any questions or inquiries. We'd be happy to help!</p>
                 <form class="contact-form" action="https://formspree.io/f/xlgvkrgr" method="POST" aria-label="Contact form" novalidate>
                     <div class="form-group">
                         <label for="name">Your Full Name <span aria-label="required">*</span></label>
