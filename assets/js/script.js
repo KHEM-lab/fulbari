@@ -125,7 +125,7 @@ function validateField(event) {
     
     if (!field.value.trim() && field.hasAttribute('required')) {
         field.setAttribute('aria-invalid', 'true');
-    } else if (field.type === 'tel' && !isValidPhone(field.value)) {
+    } else if (field.type === 'email' && !isValidEmail(field.value)) {
         field.setAttribute('aria-invalid', 'true');
     } else {
         field.setAttribute('aria-invalid', 'false');
@@ -133,13 +133,13 @@ function validateField(event) {
 }
 
 /**
- * Validates phone number format
- * @param {string} phone - Phone number to validate
- * @returns {boolean} True if valid phone number
+ * Validates email format
+ * @param {string} email - Email to validate
+ * @returns {boolean} True if valid email
  */
-function isValidPhone(phone) {
-    const phoneRegex = /^[0-9+\-\s()]*$/;
-    return phoneRegex.test(phone) && phone.replace(/\D/g, '').length >= 7;
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
 }
 
 /**
@@ -155,7 +155,7 @@ function handleFormSubmit(event) {
         if (!field.value.trim()) {
             field.setAttribute('aria-invalid', 'true');
             isValid = false;
-        } else if (field.type === 'tel' && !isValidPhone(field.value)) {
+        } else if (field.type === 'email' && !isValidEmail(field.value)) {
             field.setAttribute('aria-invalid', 'true');
             isValid = false;
         }
