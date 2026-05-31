@@ -1,6 +1,6 @@
 /**
  * Fulbari Educational Academy - Script
- * Handles modal interactions, keyboard navigation, form submission, and accessibility
+ * Handles modal interactions, keyboard navigation, and accessibility
  */
 
 // Get modal elements
@@ -89,9 +89,7 @@ function handleGalleryKeyboard(event) {
     }
 }
 
-/**
- * Initialize event listeners
- */
+// Initialize event listeners
 function init() {
     // Modal click handlers
     if (modal && closeBtn) {
@@ -106,7 +104,7 @@ function init() {
         item.addEventListener('keydown', handleGalleryKeyboard);
     });
     
-    // Form validation and submission
+    // Form validation feedback
     const form = document.querySelector('.contact-form');
     if (form) {
         form.addEventListener('submit', handleFormSubmit);
@@ -114,16 +112,8 @@ function init() {
         // Real-time validation feedback
         form.querySelectorAll('input, textarea').forEach(field => {
             field.addEventListener('blur', validateField);
-            field.addEventListener('input', () => {
-                if (field.value.trim()) {
-                    field.setAttribute('aria-invalid', 'false');
-                }
-            });
         });
     }
-    
-    // Initialize smooth scroll
-    initSmoothScroll();
 }
 
 /**
@@ -135,7 +125,7 @@ function validateField(event) {
     
     if (!field.value.trim() && field.hasAttribute('required')) {
         field.setAttribute('aria-invalid', 'true');
-    } else if (field.type === 'email' && field.value.trim() && !isValidEmail(field.value)) {
+    } else if (field.type === 'email' && !isValidEmail(field.value)) {
         field.setAttribute('aria-invalid', 'true');
     } else {
         field.setAttribute('aria-invalid', 'false');
@@ -153,38 +143,12 @@ function isValidEmail(email) {
 }
 
 /**
- * Shows feedback message to user
- * @param {string} message - The message to display
- * @param {string} type - 'success' or 'error'
- */
-function showFeedback(message, type) {
-    const feedbackEl = document.getElementById('formFeedback');
-    if (!feedbackEl) return;
-    
-    feedbackEl.textContent = message;
-    feedbackEl.className = `form-feedback ${type}`;
-    
-    // Auto-hide success message after 5 seconds
-    if (type === 'success') {
-        setTimeout(() => {
-            feedbackEl.className = 'form-feedback';
-        }, 5000);
-    }
-}
-
-/**
  * Handles form submission
  * @param {Event} event - The submit event
  */
 function handleFormSubmit(event) {
     const form = event.target;
     let isValid = true;
-    
-    // Reset feedback
-    const feedbackEl = document.getElementById('formFeedback');
-    if (feedbackEl) {
-        feedbackEl.className = 'form-feedback';
-    }
     
     // Validate all fields
     form.querySelectorAll('input[required], textarea[required]').forEach(field => {
@@ -194,17 +158,13 @@ function handleFormSubmit(event) {
         } else if (field.type === 'email' && !isValidEmail(field.value)) {
             field.setAttribute('aria-invalid', 'true');
             isValid = false;
-        } else {
-            field.setAttribute('aria-invalid', 'false');
         }
     });
     
     if (!isValid) {
         event.preventDefault();
-        showFeedback('Please fill in all required fields correctly.', 'error');
+        console.warn('Please fill in all required fields correctly');
     }
-    // If valid, form will submit to Formspree
-    // You can optionally add additional handling here
 }
 
 /**
@@ -231,6 +191,8 @@ function initSmoothScroll() {
 // Run initialization when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', initSmoothScroll);
 } else {
     init();
+    initSmoothScroll();
 }
