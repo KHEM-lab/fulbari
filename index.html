@@ -9,6 +9,7 @@
     <meta property="og:title" content="Fulbari Educational Academy | Banke">
     <meta property="og:description" content="Excellence in Education | Banke, Nepal">
     <meta property="og:type" content="website">
+    <meta name="theme-color" content="#1b5e20">
     <title>Fulbari Educational Academy | Banke</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -85,7 +86,7 @@
 
         <!-- The Modal for Fullscreen Images -->
         <div id="imgModal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="modalTitle">
-            <button class="close-btn" aria-label="Close image preview" title="Close">&times;</button>
+            <button class="close-btn" aria-label="Close image preview" title="Close image (Esc)">&times;</button>
             <img class="modal-content" id="expandedImg" alt="Expanded gallery image">
         </div>
 
@@ -104,9 +105,9 @@
                     <p><strong>Office Hours:</strong> Monday - Friday, 9:00 AM to 5:00 PM</p>
                     <h4>Connect With Us</h4>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/fulbarischool" target="_blank" rel="noopener noreferrer" class="social-btn" title="Visit us on Facebook">Facebook</a>
-                        <a href="https://www.youtube.com/channel/fulbarischool" target="_blank" rel="noopener noreferrer" class="social-btn" title="Visit us on YouTube">YouTube</a>
-                        <a href="https://www.instagram.com/fulbarischool" target="_blank" rel="noopener noreferrer" class="social-btn" title="Follow us on Instagram">Instagram</a>
+                        <a href="https://www.facebook.com/fulbarischool" target="_blank" rel="noopener noreferrer" class="social-btn" title="Visit us on Facebook" aria-label="Facebook">Facebook</a>
+                        <a href="https://www.youtube.com/channel/fulbarischool" target="_blank" rel="noopener noreferrer" class="social-btn" title="Visit us on YouTube" aria-label="YouTube">YouTube</a>
+                        <a href="https://www.instagram.com/fulbarischool" target="_blank" rel="noopener noreferrer" class="social-btn" title="Follow us on Instagram" aria-label="Instagram">Instagram</a>
                     </div>
                 </aside>
 
@@ -127,24 +128,24 @@
 
             <div class="message-form-container">
                 <h3>Send a Message</h3>
-                <form class="contact-form" action="https://formspree.io/f/xlgvkrgr" method="POST" aria-label="Contact form">
+                <form class="contact-form" action="https://formspree.io/f/xlgvkrgr" method="POST" aria-label="Contact form" novalidate>
                     <div class="form-group">
                         <label for="name">Your Full Name <span aria-label="required">*</span></label>
-                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required aria-required="true" aria-invalid="false">
                     </div>
                     <div class="form-group">
                         <label for="email">Your Email Address <span aria-label="required">*</span></label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required aria-required="true" aria-invalid="false">
                     </div>
                     <div class="form-group">
                         <label for="subject">Subject <span aria-label="required">*</span></label>
-                        <input type="text" id="subject" name="subject" placeholder="Enter subject" required>
+                        <input type="text" id="subject" name="subject" placeholder="Enter subject" required aria-required="true" aria-invalid="false">
                     </div>
                     <div class="form-group">
                         <label for="message">Your Message <span aria-label="required">*</span></label>
-                        <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+                        <textarea id="message" name="message" rows="5" placeholder="Enter your message" required aria-required="true" aria-invalid="false"></textarea>
                     </div>
-                    <button type="submit">Send Message</button>
+                    <button type="submit" class="btn">Send Message</button>
                 </form>
             </div>
         </section>
