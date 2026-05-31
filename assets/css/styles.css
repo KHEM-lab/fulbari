@@ -282,23 +282,26 @@ section h2 {
     margin-top: 1rem;
 }
 
-.social-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background-color: var(--brand-green);
-    color: white;
-    text-decoration: none;
-    font-weight: 700;
-}
+        /* --- New Clean Social Media Icons Style --- */
+        .social-links {
+            margin-top: 15px;
+            display: flex;
+            gap: 20px;
+        }
+        .social-btn {
+            font-size: 1.8rem; /* Makes the logos nice and scannable */
+            text-decoration: none;
+            transition: transform 0.2s, filter 0.2s;
+        }
+        .social-btn:hover {
+            transform: scale(1.15);
+            filter: brightness(1.2); /* Makes them pop slightly when hovered */
+        }
+        /* Official Brand Colors */
+        .facebook-color { color: #1877F2; }
+        .youtube-color { color: #FF0000; }
+        .instagram-color { color: #E1306C; }
 
-.social-btn:hover,
-.social-btn:focus-visible {
-    background-color: var(--brand-accent);
-}
 
 footer {
     background-color: #222;
